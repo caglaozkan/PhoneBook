@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PhoneBook.Dal.Entities.Worker>
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Çalışan Listesi</h2>
+@if (TempData.ContainsKey("Status") && (bool)TempData["Status"])
+{
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+        @TempData["Message"].ToString()
+    </div>
+}
+else if (TempData.ContainsKey("Status") && (bool)TempData["Status"] == false)
+{
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+        @TempData["Message"].ToString()
+    </div>
+}
+<ul class="nav navbar-nav">
+    <li>@Html.ActionLink("Çalışan Ekle", "Add", "AdminHome", new { area = "Admin" }, new { @class = "navbar-brand", @style = "align:right;" })</li>
+</ul>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Çalışan Adı Soyadı</th>
+            <th>Telefon</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<td><a href="@Url.Action("CategoryDetail","Home", new { @Id = item.CategoryId })">@item.CategoryName</a>
+                    <td>*@
+                <td>@item.name @item.surname</td>
+                <td>@item.phone</td>
+                <td>
+                    <a href="@Url.Action("Delete","AdminHome",new { area = "Admin", WorkerId= item.id })" onclick="return confirm('@item.name isimli çalışanı silmek istediğinizden emin misiniz?')" class="btn-block">Çalışanı Sil</a>
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit","AdminHome",new { area = "Admin", WorkerId = item.id })" class="btn-block">Çalışanı Düzenle</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+

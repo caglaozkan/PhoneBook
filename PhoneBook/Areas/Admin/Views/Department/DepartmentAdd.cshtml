@@ -1,0 +1,38 @@
+﻿@model PhoneBook.Areas.Admin.Models.DepartmentViewModel
+@{
+    Layout = null;
+}
+<head>
+    <link href="~/Content/AdminHomeform.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<div class="container">
+    @using (Html.BeginForm("DepartmentAdd", "Department", new { Area = "Admin" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+
+        <div class="col-md-5">
+            <div class="form-area">
+                <form role="form">
+                    <br style="clear:both">
+                    <h3 style="margin-bottom: 25px; text-align: center;">Departman Ekle</h3>
+                    <div class="form-group">
+                        <label class="form-label" for="Name"> Ad</label>
+                        @Html.TextBoxFor(x => x.name, new { @class = "form-control" })
+
+                    </div>  
+
+                    <button type="submit" name="submit" class="btn btn-primary pull-right">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    }
+
+</div>
+
+<script src="~/Content/js/form.js"></script>
+
+

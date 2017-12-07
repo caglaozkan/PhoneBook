@@ -1,0 +1,28 @@
+﻿@model IEnumerable<PhoneBook.Dal.Entities.Worker>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Çalışan Listesi</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Çalışan Adı Soyadı</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<td><a href="@Url.Action("CategoryDetail","Home", new { @Id = item.CategoryId })">@item.CategoryName</a>
+                    <td>*@
+                <td><a href="@Url.Action("Detail","Worker" , new { id=item.id })">@item.name @item.surname</a></td>
+                <td>@item.phone</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

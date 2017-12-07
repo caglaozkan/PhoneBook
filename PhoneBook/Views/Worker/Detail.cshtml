@@ -1,0 +1,69 @@
+﻿@model PhoneBook.Dal.Entities.Worker
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>Worker</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Çalışan Adı")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.Label("Çalışan Soyadı")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.surname)
+        </dd>
+
+        <dt>
+            @Html.Label("Email")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.Label("Email")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.Label("Yönetici Adı")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Manager.name)
+        </dd>
+        <dt>
+            @Html.Label("Yönetici Soyadı")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Manager.surname)
+        </dd>
+
+        <dt>
+            @Html.Label("Çalışanın Departmanı")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Department.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
